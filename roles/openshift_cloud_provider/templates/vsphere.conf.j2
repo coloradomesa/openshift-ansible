@@ -1,0 +1,21 @@
+[Global]
+server = {{ openshift_cloudprovider_vsphere_server }}
+user = {{ openshift_cloudprovider_vsphere_username }}
+password = {{ openshift_cloudprovider_vsphere_password }}
+{% if openshift_cloudprovider_vsphere_port is defined %}
+port = {{ openshift_cloudprovider_vsphere_port }}
+{% else %}
+port = 443
+{% endif %}
+{% if openshift_cloudprovider_vsphere_insecure is defined and openshift_cloudprovider_vsphere_insecure | bool %}
+insecure = 1
+{% endif %}
+{% if openshift_cloudprovider_vsphere_workingdir is defined %}
+working-dir = {{ openshift_cloudprovider_vsphere_workingdir }}
+{% endif %}
+datacenter = {{ openshift_cloudprovider_vsphere_datacenter }}
+datastore = {{ openshift_cloudprovider_vsphere_datastore }}
+
+
+[LoadBalancer]
+scsicontrollertype = pvscsi

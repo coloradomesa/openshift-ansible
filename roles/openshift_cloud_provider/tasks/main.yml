@@ -19,3 +19,6 @@
 
 - include: gce.yml
   when: cloudprovider_is_gce | bool
+
+- include: vsphere.yml
+  when: cloudprovider_is_vsphere | bool
